@@ -56,11 +56,32 @@
          * devolve um alert indicando "Nom hai nada que borrar"
          * se nom elimina o último comentario engadido
         */
-       let numComentarios = comentarios.querySelectorAll("article").length;
+       /** Um jeito */
+       /*let numComentarios = comentarios.querySelectorAll("article").length;
        if(numComentarios == 0){
         alert("Nom hai nada que borrar")
        } else {
         comentarios.querySelectorAll("article")[numComentarios-1].remove()
+       }*/
+       /** Outro jeito, este com menos código
+        * Se comentarios nom tem um último filho executa o alert
+        * se nom, com removeChild passamos o último filho, pa que o elimine
+        */
+       if(comentarios.lastChild == null){
+            alert("Nom hai nada que borrar")
+       } else {
+           comentarios.removeChild(comentarios.lastChild)
        }
+       /** Outro jeito mais, moi parecido */
+       /**
+        * let artigos = comentarios.querySelectorAll("article")
+        * if(artigos.length == 0){
+        *   alert("Nom hai nada que borrar")
+        * } else {
+        *   comentarios.removeChild(comentarios.lastChild)
+        * }
+        */
     })
+    
+
 })
