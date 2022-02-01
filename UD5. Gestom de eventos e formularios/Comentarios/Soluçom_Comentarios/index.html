@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar nodos</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <section id="formulario">
+        <h1>Añade tus comentarios</h1>
+        <form action="#">
+            <p><label for="comentario">Comentario<textarea id="textArea" rows="5"></textarea></label></p>
+
+            <label class="container">Añadir comentario
+                <input type="radio" name="nodeAction" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+              
+            <label class="container">Eliminar comentario
+                <input type="radio" name="nodeAction">
+                <span class="checkmark"></span>
+            </label>
+              
+            <p>Comentario núm.: <select id="grafCount"></select></p>
+
+            <label class="container">Insertar comentario antes de...
+                <input type="radio" name="nodeAction">
+                <span class="checkmark"></span>
+            </label>
+            
+            <label class="container">Sustituir comentario
+                <input type="radio" name="nodeAction">
+                <span class="checkmark"></span>
+            </label> 
+
+            <p><input type="submit" value="Enviar" /></p>
+        </form>
+    </section>
+    <section id="comentarios"></section>
+    <template id="template-comentario">
+        <article>
+            <h4></h4>
+            <p></p>
+        </article>
+    </template>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
