@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="scripts/script.js"></script>
+</head>
+<body>
+    <div id="formulario">
+        <header>
+            <h1>Formulário de registro</h1>
+            <h4>Completa o formulario para gerar umha conta</h4>
+        </header>
+        <article>
+            <!-- De básico de HTML, actio é a onde vai, pode ser correio electrónico, web, arquivo, etc.  -->
+            <form action="" method="get">
+
+                <label for="nome">Nome:
+                    <input type="text" id="nome" name="nome" required="required">
+                </label>
+                
+                <label for="apelidos">Apelidos:
+                    <input type="text" id="apelidos" name="apelidos" required="required">
+                </label>
+                
+                <label for="mail">Email:
+                    <input type="email" name="email" id="email" required="required">
+                </label>
+                
+                <label for="sexo">Sexo:
+                    <input type="radio" name="sexo" value="home"> Home
+                    <input type="radio" name="sexo" value="mulher" checked> Mulher
+                </label>
+                
+                <label for="anuncios">
+                    <input type="checkbox" name="anuncios" id="anuncios" checked> Desexo recibir informaçom sobre novidades e ofertas.
+                </label>
+                <label for="legal">
+                    <input type="checkbox" name="legal" required="required"> Declaro ter lido e aceptar as <a href="">condiçons gerais do programa e a normativa</a> sobre proteçom de dados.
+                </label>
+                <footer>
+                    <button type="reset">Cancelar</button>
+                    <button type="submit">Encaminhar</button>
+                </footer>
+            </form>
+        </article>
+    </div>
+</body>
+</html>

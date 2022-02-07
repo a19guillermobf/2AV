@@ -1,0 +1,24 @@
+* {
+    margin:0;
+    padding: 0;
+}
+
+body {
+    margin:0 auto;
+    width: 50%;
+}
+
+#formulario {
+    margin:0 auto;
+}
+/*Para que o contido do formulario se mostre em coluna*/
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], input[type="email"]{
+    display: flex;
+    flex-direction: column;
+}
+/*Seguir revisando este css*/
