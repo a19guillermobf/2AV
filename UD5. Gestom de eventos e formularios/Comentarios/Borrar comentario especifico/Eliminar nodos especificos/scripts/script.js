@@ -1,14 +1,12 @@
-/** Primeiro engade-se este escoitador que fai que
- * nom se execute o script até que se carregue completamente a
- * página
+/** Igual que o de insertar comentarios pero retirando a parte onde se podem incluir comentarios
+ * em possiçons escolhidas
  */
 
-document.addEventListener("DOMContentLoaded",e=>{
+ document.addEventListener("DOMContentLoaded",e=>{
     /**Deveria recolher:
      * o que hai em comentarios, no text área
      * O que hai no radio, para saber se é engadir ou eliminar
      * O que hai no despregável de comentario num
-     * O que hai no radio de insertar antes de
      * todos os comentarios engadidos
      * Um eventlistener para enviar*/
 
@@ -47,7 +45,7 @@ document.addEventListener("DOMContentLoaded",e=>{
      * engadir comentario nalgumha possiçom concreta
      */
 
-    function engadirComentario(texto,posicion){
+    function engadirComentario(texto){
         /** Recolhe os comentarios */
         let comentarios = recolheComentarios();
         /**O que temos que engadir é umha estrutura como a seguinte
@@ -69,49 +67,16 @@ document.addEventListener("DOMContentLoaded",e=>{
         let comentario = document.createTextNode(texto);
         /**Engade o texto ao parrafo */
         parrafo.appendChild(comentario);
-        /** Se nom se passa umha possiçom, e possiçom é disitinto de 0, que se é 0 reconhece 
-         * tamem coma false e entra por aqui, engade no final*/
-        if (!posicion && posicion != 0){
-            //console.log("Entrou por !posicion "+posicion)
-            /** O número do título é a longitude de comentarios +1. COmentarios é um elemento, pero se seleccionamos os articles que tem
-             * devolve um nodelist, que podermos contabilizar cantos elementos article tem dentro
-            */
-            let numero = comentarios.querySelectorAll("article").length+1;
-            h4.appendChild(document.createTextNode(`Comentario ${numero}`));
-            /**Engade ao artigo, primeiro o h4, logo o parágrafo, e logo a comentarios o artigo */
-            artigo.appendChild(h4);
-            artigo.appendChild(parrafo);
-            comentarios.appendChild(artigo);
+        /** O número do título é a longitude de comentarios +1. COmentarios é um elemento, pero se seleccionamos os articles que tem
+         * devolve um nodelist, que podermos contabilizar cantos elementos article tem dentro
+        */
+        let numero = comentarios.querySelectorAll("article").length+1;
+        h4.appendChild(document.createTextNode(`Comentario ${numero}`));
+        /**Engade ao artigo, primeiro o h4, logo o parágrafo, e logo a comentarios o artigo */
+        artigo.appendChild(h4);
+        artigo.appendChild(parrafo);
+        comentarios.appendChild(artigo);
 
-        } else {
-            //console.log("Entrou por else "+posicion)
-            /**Se nom, quere dizer que se passou umha possiçom x, entom, deveria engadir o artigo na possiçom x e renumerar o resto */
-            h4.appendChild(document.createTextNode(`Comentario ${posicion+1}`));
-            /**Recolhe*/
-            /**Engade ao artigo, primeiro o h4, logo o parágrafo */
-            artigo.appendChild(h4);
-            artigo.appendChild(parrafo);
-            /**Agora haveria que buscar a forma de mete-lo artigo aí no medio dos outros, e renomear os h4 do resto... */
-            /** Polo que vou vendo nos apuntes, o método que me pode valer aquí é insertBefore(novo nodo, nodo) 
-             * O que me devolve recolheCOmentarios é um elemento html, creo, e com .querySelectorAll("#comentarios") obtenho
-             * um nodeList.
-             * entom, se fago um comentarios.insertBefore(artigo,comentarios.querySellectorAll("article")[0])
-             * Pois metería este artigo na primeira possiçom, é dizer, inserta-o antes do nodo indicado.
-             * 
-             * Assí conseguiria mete-lo, logo haveria que renomear os seguintes h4 do resto de nodos.
-             * 
-             */
-             comentarios.insertBefore(artigo,comentarios.querySelectorAll("article")[posicion]);
-
-            /** Agora, para renumerar o resto, pode que com um foreach ou for, que percorra o nodeList desde a possiçom passada
-             * e que modifique o contido de h4 de cada nodo, por "comentario e o número que toque"
-            */
-            
-            let comentNodos = comentarios.querySelectorAll("article");
-            for (let i = posicion; i< comentNodos.length; i++){
-                comentNodos[i].querySelector("h4").textContent = `Comentario ${i+1}`;
-            }
-        }
     }
 
 
@@ -158,20 +123,13 @@ document.addEventListener("DOMContentLoaded",e=>{
         /**Agora, dependendo do que esteja marcado nos radios, engade um comentario ao final, engade um comentario na 
          * possiçom indicada, ou elimina o comentario da possiçom indicada
          */
-        console.log(radio[0].checked)
-        console.log(radio[1].checked)
-        console.log(radio[2].checked)
-        console.log(posicion)
         if(radio[0].checked){
             engadirComentario(texto);
         } else if (radio[1].checked && posicion == -1 ){
             alert("Nom existem comentários para eliminar");
         } else if (radio[1].checked) {
             eliminaComentario(posicion);
-        } else if (radio[2].checked){
-            if(posicion == -1) posicion = 0;
-            engadirComentario(texto,posicion);
-        }
+        } 
 
         /**Agora quedaria refazer o select cos números que tocariam, que seriam o número de articles
          * que existem actualmente. Primeiro elimino todo o que hai dentro de seleccionado, e logo 

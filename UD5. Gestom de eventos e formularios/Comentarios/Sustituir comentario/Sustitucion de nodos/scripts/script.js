@@ -1,14 +1,13 @@
-/** Primeiro engade-se este escoitador que fai que
- * nom se execute o script até que se carregue completamente a
- * página
+/** Entendo que este é igual que o de insertar comentarios, pero ao recolher os radio, pode haver umha opçom mais
+ * que seria a de substituir, neste caso, teria que, se está esse radio marcado,
+ * colher o número do select e cambiar o texto 
  */
 
-document.addEventListener("DOMContentLoaded",e=>{
+ document.addEventListener("DOMContentLoaded",e=>{
     /**Deveria recolher:
      * o que hai em comentarios, no text área
-     * O que hai no radio, para saber se é engadir ou eliminar
+     * O que hai no radio, para saber se é engadir ou eliminar ou substituir
      * O que hai no despregável de comentario num
-     * O que hai no radio de insertar antes de
      * todos os comentarios engadidos
      * Um eventlistener para enviar*/
 
@@ -132,6 +131,15 @@ document.addEventListener("DOMContentLoaded",e=>{
             comentNodos[i].querySelector("h4").textContent = `Comentario ${i+1}`;
         }
     }
+
+    /** substitue o comentario
+     * Haverá que receber umha possiçom e um texto e em funçom disso, modificar o que hai no parágrafo
+    */
+   function substituirComentario(texto,posicion){
+    document.querySelector("#comentarios").querySelectorAll('p')[posicion].textContent=texto
+   }
+
+
     /**
      * Suponho que nalgúm momento haverá que atualizar os números da lista, pero isso pode ser já no eventlistener do 
      * botom
@@ -158,10 +166,7 @@ document.addEventListener("DOMContentLoaded",e=>{
         /**Agora, dependendo do que esteja marcado nos radios, engade um comentario ao final, engade um comentario na 
          * possiçom indicada, ou elimina o comentario da possiçom indicada
          */
-        console.log(radio[0].checked)
-        console.log(radio[1].checked)
-        console.log(radio[2].checked)
-        console.log(posicion)
+
         if(radio[0].checked){
             engadirComentario(texto);
         } else if (radio[1].checked && posicion == -1 ){
@@ -171,6 +176,10 @@ document.addEventListener("DOMContentLoaded",e=>{
         } else if (radio[2].checked){
             if(posicion == -1) posicion = 0;
             engadirComentario(texto,posicion);
+        } else if (radio[3].checked && posicion != -1) {
+            substituirComentario(texto,posicion);
+        } else {
+            alert("Nom existem comentários para substituir");
         }
 
         /**Agora quedaria refazer o select cos números que tocariam, que seriam o número de articles
