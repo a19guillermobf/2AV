@@ -238,4 +238,3 @@ O objeto `select` está composto por umha array de objetos `option`
     </body>
 </html>
 ```
-

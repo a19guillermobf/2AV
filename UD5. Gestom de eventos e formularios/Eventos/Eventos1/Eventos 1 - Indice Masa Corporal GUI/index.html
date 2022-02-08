@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Calculadora del IMC</title>
+</head>
+<body>
+    <section id="contenedor">
+        <header id="titulo">
+            <h1>Calculadora del IMC</h1>
+        </header>   
+        <form id="formulario">
+            <p>
+                <label for="altura">Altura (Cm)</label>
+                <input type="text" id="altura">        
+            </p>
+            <p>
+                <label for="peso">Peso (Kg)</label>
+                <input type="text" id="peso">        
+            </p>
+            <button type="submit">Calcular</button>
+            <article id="resultados"></article>
+            <article id="guia-peso">
+                <h3>Referencia de valores</h3>
+                <p>Bajopeso = Menos de 18.6</p>
+                <p>Normal = 18.6 y 24.9</p>
+                <p>Sobrepeso = Mayor de 24.9</p>
+            </article>        
+        </form>
+    </section>
+</body>
+<script src="js/script.js"></script>
+</html>

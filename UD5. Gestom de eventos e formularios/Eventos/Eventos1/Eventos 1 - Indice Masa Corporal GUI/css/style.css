@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
+#contenedor{
+    width:70%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+header{
+    text-align: center;
+    font-size: large;
+}
+
+#formulario {
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: lightskyblue;
+    padding: 5px;
+}
+
+label {
+    width: 25%;
+    float: left;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+input {
+    width: 65%;
+    padding: 12px;
+    margin: 5px 0px 22px 5px;
+    display: block;
+    border: none;
+    background: #f1f1f1;
+    text-align: right;
+    font-size: 12pt;
+}
+
+button {
+      width:35%;
+      padding:5px;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      background-color: darkblue;
+      color: white;
+      font-weight: bold;
+}
+
+button:hover{
+    background: darkgreen;
+}
+
+#resultados{
+    font-size: 25px;
+    margin-top: 20px;
+    color: blue;
+    text-align: center;
+}
+
+#guia-peso {
+    text-align: center;
+}
