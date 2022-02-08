@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Calendario</title>
+</head>
+<body>
+    <section id="contenedor">
+        <header id="titulo">
+            <h1>Calendario del mes</h1>
+        </header>   
+        <form id="formulario">
+            <p>
+                <label for="mes"></label>Mes
+                <input type="text" id="mes">        
+            </p>
+            <p>
+                <label for="anho"></label>Año
+                <input type="text" id="anho" name="anho">        
+            </p>
+            <button type="submit" name="mostrar" id="mostrar">Mostrar</button>
+        </section>
+        <article id="resultados"></article>
+        <article id="calendario">
+            <p id="cal"></p>
+        </article>
+    </form>
+    <script src="js/script.js"></script>
+</body>
+</html>

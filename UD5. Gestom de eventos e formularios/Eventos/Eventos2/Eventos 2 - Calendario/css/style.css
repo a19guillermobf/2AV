@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+#contenedor{
+    width:100%;
+    display:inline-block;
+    margin-left:0 auto;
+    margin-right:0 auto;
+}
+
+header{
+    text-align: center;
+    font-size: large;
+}
+
+#formulario{
+    width:30%;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: gainsboro;
+    padding: 5px;
+}
+
+label {
+    margin-left: 5px;
+}
+
+input {
+    width: 80%;
+    padding: 12px;
+    margin: 5px 0px 22px 5px;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    text-align: right;
+}
+
+button{
+      width:50%;
+      padding:5px;
+      margin-left: 50%;
+      background-color:lightsteelblue;
+      transform: translateX(-50%);
+}
+
+#calendario{
+    float:left;
+    margin-top: 20px;
+    background-color: gainsboro;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+table{
+    margin-left:auto;
+    margin-right: auto;
+}
+
+td {
+    padding:4px;
+}
+
+#calendario p.titulo{
+    font-weight: bold;
+    text-align: center;
+}
+
+.domingo {
+    background-color: red;
+    color:white;
+}
+
+
+#resultados{
+    font-size: 25px;
+    margin-top: 20px;
+    color: blue;
+    text-align: center;
+}
