@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+#contenedor{
+    width:70%;
+    margin:0 auto;
+}
+
+header{
+    text-align: center;
+    font-size: large;
+}
+
+#formulario {
+    width:50%;
+    margin:0 auto;
+    background-color: lightskyblue;
+    padding: 15px;
+}
+
+
+p {
+    width: 100%;
+    text-align: center;
+    margin:10px;
+}
+
+label {
+    width: 25%;
+    display: inline-block;
+    text-align: right;
+}
+
+input {
+    width: 65%;
+    text-align: right;
+    padding: 12px;
+    margin: 5px 0px 5px 5px;
+    border-radius: 5px;
+    border: 1px solid #39c;
+    background-color: #dfe;
+    color:black;
+    font-weight: bold;
+    transition: width 0.4s ease-in-out;          
+}
+
+input[type=text]:focus {
+    background-color: gray;
+    color:white;
+    width: 60%;
+}
+
+#operaciones{
+    width: 80%;
+    margin:0 auto;
+    text-align: right;
+}
+
+button {
+      background-color: darkblue;
+      color: white;
+      font-weight: bold;
+      font-size: 12pt;
+      padding:5px 10px 5px 10px;            
+}
+
+button:hover{
+    background: darkgreen;
+}
+
+#resultado{
+    font-size: 25px;
+    margin-top: 20px;
+    color: blue;
+    text-align: center;
+}

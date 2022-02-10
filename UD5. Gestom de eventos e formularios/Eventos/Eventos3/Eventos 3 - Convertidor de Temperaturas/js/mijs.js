@@ -35,7 +35,8 @@ function cambiarOutputs(g_celsius,g_farenheit){
  * ver, é dizir, nom pode haver mais de 100ºF nem menos de 0ºC
  */ 
 
-celsius.addEventListener("mouseup",evento=>{
+celsius.addEventListener("change",evento=>{
+    //evento.preventDefault();
     let g_celsius = celsius.value;
     let g_farenheit = celsiusFarenheit(g_celsius);
     farenheit.value=g_farenheit;
@@ -49,7 +50,8 @@ celsius.addEventListener("mouseup",evento=>{
     cambiarOutputs(g_celsius,g_farenheit);
 })
 
-farenheit.addEventListener("mouseup",evento=>{
+farenheit.addEventListener("change",evento=>{
+    //evento.preventDefault();
     let g_farenheit = farenheit.value;
     let g_celsius = farenheitCelsius(g_farenheit);
     celsius.value=g_celsius;
@@ -63,4 +65,7 @@ farenheit.addEventListener("mouseup",evento=>{
     cambiarOutputs(g_celsius,g_farenheit);
 })
 
+/** Por algúm motivo que nom entendim co evento change funciona
+ * perfectamente pero co evento mouseup só funciona nos valores intermedios.
+ */
 console.log(`Final → celsius ${celsius.value} e farenheit ${farenheit.value}`)
