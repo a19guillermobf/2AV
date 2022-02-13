@@ -29,9 +29,9 @@ let borrar = document.querySelector("#reiniciar-btn");*/
  */
 function comprovaNumeros(num1,num2){
     let saida;
-    if(isNaN(num1)){
+    if(isNaN(num1) || num1 == ""){
         saida = "Proporciona um número na primeira caixa";
-    } else if(isNaN(num2)){
+    } else if(isNaN(num2) || num2 == ""){
         saida = "Proporciona um número na segunda caixa";
     } else {
         saida = true;
@@ -41,6 +41,15 @@ function comprovaNumeros(num1,num2){
 
 function suma(num1,num2){
     return Math.round((num1+num2)*1000)/1000;
+}
+function resta(num1,num2){
+    return Math.round((num1-num2)*1000)/1000;
+}
+function multiplicacion(num1,num2){
+    return Math.round((num1*num2)*1000)/1000;
+}
+function division(num1,num2){
+    return Math.round((num1/num2)*1000)/1000;
 }
 
 /** Fai os eventos e comprovaçons 
@@ -112,16 +121,35 @@ let operacions = document.querySelector("#operaciones");
 
 operacions.addEventListener("click",evento=>{
     evento.preventDefault();
-    let num1 = document.getElementsByName("numero1")[0].value;
-    let num2 = document.getElementsByName("numero2")[0].value;
-    let cont = comprovaNumeros(num1,num2);
+    let num1 = document.getElementsByName("numero1")[0];
+    let num2 = document.getElementsByName("numero2")[0];
+    let cont = comprovaNumeros(num1.value,num2.value);
     let resultado = document.querySelector("#resultado");
     let res;
-    if (!isNaN(cont)) {
-        num1 = parseFloat(num1);
-        num2 = parseFloat(num2);
+    if (evento.target.id == "reiniciar-btn"){
+        /** Neste caso nom me quedava claro se ao dar-lhe a borrar se tinha que borrar só o do input seleccionado ou 
+        * os dous inputs. Fago pa que borre os dous
+        */
+        num1.value="";
+        num2.value="";
+        resultado.textContent="";
+    }else if (!isNaN(cont)) {
+        let n1 = parseFloat(num1.value);
+        let n2 = parseFloat(num2.value);
         switch(evento.target.id){
-            case "sumar-btn": resultado.textContent=`O resultado da operaçom é: ${suma(num1,num2)}`;
+            case "sumar-btn": 
+                resultado.textContent=`O resultado da suma é: ${suma(n1,n2)}`;
+                break;
+            case "restar-btn": 
+                resultado.textContent=`O resultado da resta é: ${resta(n1,n2)}`;
+                break;
+            case "multiplicar-btn": 
+                resultado.textContent=`O resultado da multiplicaçom é: ${multiplicacion(n1,n2)}`;
+                break;
+            case "dividir-btn": 
+                resultado.textContent=`O resultado da divissom é: ${division(n1,n2)}`;
+                break;
+
         }
     } else {
         resultado.textContent=cont;
