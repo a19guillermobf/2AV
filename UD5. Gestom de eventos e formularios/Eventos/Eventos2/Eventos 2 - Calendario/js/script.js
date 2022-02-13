@@ -19,9 +19,22 @@ function eBissexto(ano){
     return resultado;
 }
 
-/** Funçom para construir a tábua */
+/** Funçom para construir a tábua 
+ * recibe um array bidimensional de X*7
+ * X som as semanas assiq, hai que itera-lo x vezes, e dentro de cada iteraçom,
+ * iterar de novo para ir metendo os dias da semana.
+ * 
+*/
 function taboa(array_data){
-
+    let tabla = "<table><thead><tr><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sab</th><th>Dom</th></tr></thead><tbody>"
+    for (let i = 0; i<array_data.length; i++){
+        tabla+="<tr>"
+        for (let j = 0; j< array_data[i].length; j++){
+            tabla+=`<td>${array_data[i][j]}</td>`
+        }
+        tabla+="</tr>"
+    }
+    tabla+="<tbody></table>"
 }
 
 /** Funçom que devolve o último dia do mes */
@@ -109,10 +122,12 @@ formulario.addEventListener("submit",evento=>{
     }
     console.log(array_mes);
 
-    /** Falta, crear a funçom que escriba a tábua, à que se lhe passa o array cos dias
+    /**
      * fazer a comprovaçom dos input, que seja um número, que os meses nom sejam maiores que 11 e essas cousas
      * igual fazendo um input number com limitaçom por riba e por baixo já valeria
      * assi já namais haveria que verificar que nom esteja valeiro
+     * 
+     * Meter os resultados, no html
      */
 
 })
