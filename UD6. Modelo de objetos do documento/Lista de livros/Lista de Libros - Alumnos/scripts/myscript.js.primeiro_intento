@@ -1,0 +1,50 @@
+/** DUBIDAS
+ * Que diferencia hai entre ir creando elementos com createElement() e agrega-los com appendchild uns dentro dos outros
+ * e cando os tenhamos listos agregar esse nodo principar que os contem a todos
+ * (p.ex crear um article, um h1 e um p, meter o h1 e o p dentro de article e logo o article 
+ * dentro de um elemento calquera do DOM)
+ * Ou usar a funçom createDocumentFragment()
+ * 
+ * Como trabalhar com JSON
+ * 
+ */
+
+
+
+/** Sobre o exercicio.
+ * Recuperar coma sempre os datos do formulario e o formulario
+ * e o lugar onde se vam engadir o resto de cousas
+ */
+let formulario = document.querySelector("#libro-form")
+let titulo = document.querySelector("#titulo")
+let autor = document.querySelector("#autor")
+let isbn = document.querySelector("#isbn")
+let tabua = document.querySelector("#lista-libros")
+
+/**Funçom que crea a estrutura para a táboa e a devolve-a */
+function creaEntrada(){
+    let tr = document.createElement("tr")
+    for(let i=0;i<3;i++){
+        let th = document.createElement("td")
+        let texto = document.createTextNode(document.querySelectorAll("input")[i].value)
+        th.appendChild(texto)
+        tr.appendChild(th)
+    }
+    return tr
+}
+
+/** No evento de submit, haveria que comprovar se estam todos os campos cubertos
+ * se nom, sacar um alert dizindo que se cubram todos os campos
+ */
+
+formulario.addEventListener("submit",evento=>{
+    evento.preventDefault()
+    if(titulo.value == "" || autor.value == "" || isbn.value == ""){
+        alert("Revisa os campos. Devem estar todos cubertos")
+    } else {
+        tabua.appendChild(creaEntrada())
+        titulo.value=""
+        autor.value=""
+        isbn.value=""
+    }
+})
