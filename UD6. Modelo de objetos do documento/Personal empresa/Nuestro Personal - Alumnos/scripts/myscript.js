@@ -54,6 +54,11 @@ let foto = document.querySelector("#persona-img")
 let texto = document.querySelector("#info")
 let contentor = document.querySelector("main")
 
+/**Esta funçom está mal, hai que fazer objetos, coma no exercicio dos livros
+ * nom um array.
+ * Igual hai que fazer um evento ou algo que recolha e esta sara nada mais carregar
+ * a página
+ */
 function actualizaPersonal(){
   if (!personal[4]){
     let sara = [];
