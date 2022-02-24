@@ -75,6 +75,7 @@ contentor.addEventListener("click",evento=>{
       actual = parseInt(elemento.id);
     }
   });
+  console.log(actual)
   switch(evento.target){
     case document.querySelectorAll("i")[0]:
       console.log("retroceso")
@@ -88,7 +89,7 @@ contentor.addEventListener("click",evento=>{
       break;
     case document.querySelectorAll("i")[1]:
       console.log("avanço")
-      if (actual == personal.length+1){
+      if (actual == personal.length){
         actual = -1
       }
       nome.textContent = personal[actual+1].nombre;
