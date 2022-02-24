@@ -177,3 +177,12 @@ function actualizaSessionStorage(){
         insertaLivros()
     }
  })
+
+ /**Idea/proposta para outro momento
+  * Fazer este exercicio com classes
+  * creando umha classe livro cos seus setter e getteres e contructor e tal
+  * e umha classe UI ou interface, que seria a que teria métodos como
+  * addLivro, actualizasession etc, a essa classe passaria-se-lhe um objeto
+  * livro para que trabalhara com el, e internamente teria a estrutura
+  * libros, que iria armazenando objetos livro
+  */
