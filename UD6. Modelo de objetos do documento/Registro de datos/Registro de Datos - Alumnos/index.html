@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/mystyle.css">
+    <script src="scripts/myscript.js" defer></script>
+    <title>Registro de Datos</title>
+</head>
+<body>
+    <header>
+        <h1>Registro de datos</h1>
+    </header>
+    <main>
+        <form action="">
+            <fieldset>
+                <legend>Datos Personales</legend>
+            <p>
+                <label for="nif" name="nif">NIF</label>
+                <input type="text" name="nif" id="nif" >
+            </p>
+            <p>
+                <label for="nombre" name="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" >
+            </p>
+            <p id="radio">
+                <input type="radio" name="sexo" value="0"><label for="hombre">Hombre</label>
+                <input type="radio" name="sexo" value="1"><label for="mujer">Mujer</label>
+            </p>    
+            <p>
+                <label for="direccion" name="direccion">Direccion</label>
+                <input type="text" name="direccion" id="direccion">
+            </p>
+            <p>
+                <label for="fnac">F. Nac.</label>
+                <input type="date" name="fnac" id="fnac" value="1972-05-17">
+            </p>        
+            <p>
+                <label for="estudios" name="estudios">Estudios</label>
+                <select name="estudios" id="estudios">
+                    <option value="0">Sin estudios</option>
+                    <option value="1">ESO</option>
+                    <option value="2">Bachillerato</option>
+                    <option value="3">CM FP</option>
+                    <option value="4">CS FP</option>
+                    <option value="5">Universidad</option>
+                </select>
+            </p>
+            <p>
+                <label for="telefono">Telefono</label><input type="tel" id="telefono">
+            </p>
+            <p>
+                <label for="email">Email</label><input type="email" name="email" id="email">
+            <p>
+            </fieldset>
+            <fieldset>
+                <legend>Aficiones</legend>
+                <p>               
+                    <input type="checkbox" name="aficion" id="cine"><label for="cine">Cine</label>
+                    <input type="checkbox" name="aficion" id="lectura"><label for="lectura">Lectura</label>
+                    <input type="checkbox" name="aficion" id="deporte"><label for="deporte">Deporte</label>
+                    <label for="otras">Otra</label>
+                    <input type="text" name="otra" id="otra">
+                </p>   
+            </fieldset>
+            <p>
+                <button id="add">Añadir</button>
+            </p>
+        </form>
+    </main>
+    <footer>
+        <h2>Datos Registrados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>NIF</th>
+                    <th>Nombre</th>
+                    <th>Sexo</th>
+                    <th>Direccion</th>
+                    <th>F. Nac.</th>
+                    <th>Estudios</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Aficiones</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="9">Total de Registros</th>
+                    <th>0</th>
+                </tr>
+            </tfoot>
+        </table>
+    </footer> 
+    <template id="template-fila">  
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="#">X</a></td>
+        </tr>
+    </template>
+</body>
+</html>

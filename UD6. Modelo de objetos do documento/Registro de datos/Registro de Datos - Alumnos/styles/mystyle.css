@@ -1,0 +1,151 @@
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+    width:100vw;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    text-align: center;
+    margin: 40px 0;
+}
+
+main {
+    width: 600px;
+    padding: 20px;
+    background-color:darkgrey;
+    border:1px solid black;
+    border-radius: 10px;
+}
+
+form fieldset{
+    margin-bottom: 20px;
+}
+
+form fieldset legend {
+    padding: 5px;
+    margin-bottom: 16px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+form p{
+    margin-bottom: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    display: inline-block;
+    width: 70px;
+    padding: 7px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+label[for="hombre"]{
+    margin-left: 3px;
+    text-align: left;
+}
+
+label[for="mujer"]{
+    margin-left: 3px;
+    text-align: left;
+}
+
+input[type="radio"] {
+    width: auto;
+}
+
+#radio{
+    margin-left: 100px;
+}
+
+input {
+    width: 400px;
+    border:transparent;
+    border-radius: 4px;
+    padding: 7px;
+}
+
+#otra{
+    width: auto;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    display: inline-block;
+}
+
+label[for="cine"] {
+    display: inline-block;
+    width: auto;
+    text-align: left;
+    margin-left: 3px;
+}
+
+select {
+    width: 400px;
+    padding: 7px;
+}
+
+#add{
+    padding: 12px;
+    background-color: darkorange;
+    color: black;
+    font-weight: bold;
+    border:transparent;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+footer{
+    margin-top: 30px;
+}
+
+footer h2{
+    text-align: center;
+    margin: 30px 0;;
+}
+
+table {
+    border-collapse:collapse;
+}
+
+table td,th {
+    min-width: 100px;
+    text-align: center;
+    border:1px solid #999;
+    padding:10px;
+}
+
+table a {
+    display: block;
+    text-decoration: none;
+    padding: 8px;
+    color:white;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+table a[href="#"]{
+    text-decoration: none;
+    padding: 8px;
+    background-color: darkred;
+    color:white;
+    border-radius: 8px;
+}
+
+tfoot tr th:first-child{
+    text-align: right;
+}
