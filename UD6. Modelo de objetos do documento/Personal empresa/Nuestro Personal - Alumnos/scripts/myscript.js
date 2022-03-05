@@ -61,51 +61,70 @@ let contentor = document.querySelector("main")
  */
 function actualizaPersonal(){
   if (!personal[4]){
-    let sara = [];
-    sara["id"] = 5;
-    sara["nombre"] = nome.textContent;
-    sara["trabajo"] = trabalho.textContent;
-    sara["foto"] = foto.src;
-    sara["text"] = texto.textContent;
+    let sara = {
+      id: 5,
+      nombre: nome.textContent,
+      trabajo: trabalho.textContent,
+      foto: foto.src,
+      text: texto.textContent
+    }
     personal.push(sara);
   }
+}
+
+/**Actualiza o html co empregado localizado na possiçom n */
+function actualizaHTML(n){
+  nome.textContent = personal[n].nombre;
+  trabalho.textContent = personal[n].trabajo;
+  foto.src = personal[n].foto;
+  texto.textContent = personal[n].text;
 }
 
 contentor.addEventListener("click",evento=>{
   evento.preventDefault()
   actualizaPersonal()
   let actual
+  /**Recolhe o id do actual empregado */
   personal.forEach(elemento => {
     if(elemento.nombre == nome.textContent){
       actual = parseInt(elemento.id);
     }
   });
-  console.log(actual)
+  /** Escolhe o que fazer em funçom do botom que se prema, 
+   * no switch recolhe o evento, e nos case vai comprovando se se 
+   * corresponde com avançar, retroceder ou aleatorio
+   */
   switch(evento.target){
+    /**Retroceso */
     case document.querySelectorAll("i")[0]:
-      console.log("retroceso")
+      /**Se o id actual é igual a 1, temos que ir ao último da lista
+       * Para isso colhemos a longitude e sumamos 1
+       */
       if(actual == 1){
-        actual = personal.length+2;
+        actual = personal.length+1;
       }
-      nome.textContent = personal[actual-1].nombre;
-      trabalho.textContent = personal[actual-1].trabajo;
-      foto.src = personal[actual-1].foto;
-      texto.textContent = personal[actual-1].text;
+      /**Porque para retroceder 1, temos que ir ao número do id actual
+       * menos 2, para ir do id 3 ao 2, temos que ir a personal[1]
+       */
+       actualizaHTML(actual-2);
       break;
+    /**Avanço */
     case document.querySelectorAll("i")[1]:
-      console.log("avanço")
+      /**Se o id actual é o do último, temos que ir ao primeiro da lista */
       if (actual == personal.length){
-        actual = -1
+        actual = 0
       }
-      nome.textContent = personal[actual+1].nombre;
-      trabalho.textContent = personal[actual+1].trabajo;
-      foto.src = personal[actual+1].foto;
-      texto.textContent = personal[actual+1].text;
+      actualizaHTML(actual)
       break;
+    /**Aleatorio 
+     * Asigna a actual um número entre 0 e 4
+     * Math.floor((Math.random() * (max - min + 1)) + min);
+    */
     case document.querySelectorAll("button")[2]:
-      console.log("aleatorio")
+      actual = Math.floor((Math.random() * 5));
+      actualizaHTML(actual);
       break;
     default:
-      console.log("Que se passa?")
+      console.log("Click fora dos elementos de acçom")
   }
-},true)
+})
