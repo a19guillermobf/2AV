@@ -14,3 +14,138 @@
  * Crear umha classe Interface que tenha os métodos pa engadir ou borrar alunas, pa actualizar os datos da session?? 
  * Polo que apuntei na outra tarefa, esta classe teria estes métodos e ademais teria internamente a estrutura de datos 
  */
+
+/**A classe para a interfaze, entendo que só vai ter que ter a estrutura de dados, que vai ser algo do estilo array/coleçom de classes de 
+ * alunado. E ademais, vai ser a que interatue co HTML. Terá que recolher os datos da sessom, modificar o html, crear o fragmento esse?
+ */
+class controlador{
+    constructor(alunos){
+        this.alunos = alunos;
+    }
+    /**Recolhe os elementos que hai no HTML creando umha instancia 
+     * da classe aluno
+    */
+    recolheDatosHTML(){
+        /**Recolhe um string */
+        let nif = document.querySelector("#nif").value;
+        /**Recolhe um string */
+        let nome = document.querySelector("#nombre").value;
+        /**Este vai revisar se o sexo Home está marcado, se está colhe o valor desse elemento, se nom colhe o de mulher
+         * Haveria que se assegurar de que cando se chama a esta funçom todos os campos estám cubertos,
+         * ainda que polo que se ve no vídeo, nalgúm momento hai que fazer que Hombre esteja marcado por defecto
+         */
+        let sexo = document.getElementsByName("sexo")[0].checked ? document.getElementsByName("sexo")[0].value : document.getElementsByName("sexo")[1].value;
+        /**Recolhe um string */
+        let enderezo = document.querySelector("#direccion").value;
+        /**Recolhe um valor do 0 ao 5, depois entendo que haveria que relacionar co string correspondente
+         * com por exemplo document.querySelectorAll("option")[3].textContent, sendo 3 o número que recolhemos em estudo
+         */
+        let estudos = document.querySelector("#nombre").value;
+        /**String ou int */
+        let telefone = document.querySelector("#telefono").value;
+        /**String */
+        let mail = document.querySelector("#email").value;
+        /**Agora, para os checkbox, com document.querySelectorAll('input[type="checkbox"]') ou com document.getElementsByName("aficion")
+         *  seleccionam-se os tres, haveria que ver quais som os 
+         * checked. Tamém haveria que ver se "Otra" tem algum contido.
+         * Estes valores haveria que garda-los numha estrutura de datos, por exemplo um array ou assi
+         * Entom, igual podo crear umha variável pa recolher os checkbox, e logo a variável hobis, array onde ir metendo os que correspondam
+         */
+        let checkes = document.getElementsByName("aficion");
+        let hobis = [];
+        checkes.forEach(elemento => {
+            if (elemento.checked){
+                
+            }
+        });
+    }
+    actualizaDatos(){
+
+    }
+    actualizaHTML(){
+
+    }
+    reseteaFormulario(){
+
+    }
+}
+
+
+
+//document.querySelector("#nif").value
+document.getElementsByName("sexo")
+//document.getElementsByName("sexo")[0].checked
+
+class aluno{
+    //Construtor ao que se lhe passam todos os campos
+    constructor(nif,nome,sexo,enderezo,data,estudos,telefone,mail,hobis){
+        this.nif = nif;
+        this.nome = nome;
+        this.sexo = sexo;
+        this.enderezo = enderezo;
+        this.data = data;
+        this.estudos = estudos;
+        this.telefone = telefone;
+        this.mail = mail;
+        this.hobis = hobis;
+    }
+    //Getters
+    get nif(){
+        return this.nif;
+    }
+    get nome(){
+        return this.nome;
+    }
+    get sexo(){
+        return this.sexo;
+    }
+    get enderezo(){
+        return this.enderezo;
+    }
+    get data(){
+        return this.data;
+    }
+    get estudos(){
+        return this.estudos;
+    }
+    get telefone(){
+        return this.telefone;
+    }
+    get mail(){
+        return this.mail;
+    }
+    get hobis(){
+        return this.hobis;
+    }
+    //Setters
+    /**Aqui entendo que já nom é só asignar valores sem mais, suponho que o nif nom se vai 
+     * poder cambiar mais, polo que já nom lhe fago setter.
+     * Logo, o campo hobis por exemplo, entendo que é um array de strings ou algo assi, 
+     * polo que teria que actualizar com um novo array, ainda que se o que recolho do html é
+     * já umha estrutura assi... igual si que pode ser umha simples assignaçom... vou vendo
+     */
+    set nome(nome){
+        this.nome = nome;
+    }
+    set sexo(sexo){
+        this.sexo = sexo;
+    }
+    set enderezo(enderezo){
+        this.enderezo = enderezo;
+    }
+    set data(data){
+        this.data = data;
+    }
+    set estudos(estudos){
+        this.estudos = estudos;
+    }
+    set telefone(telefone){
+        this.telefone = telefone;
+    }
+    set mail(mail){
+        this.mail = mail;
+    }
+    set hobis(hobis){
+        this.hobis = hobis;
+    }
+}
