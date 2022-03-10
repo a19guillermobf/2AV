@@ -17,7 +17,7 @@
 
  class Aluno{
     //Construtor ao que se lhe passam todos os campos
-    constructor(nif,nome,sexo,enderezo,data,estudos,telefone,mail,hobis){
+    constructor(nif,nome,sexo,enderezo,data,estudos,telefone,mail,hobis,outra){
         this.nif = nif;
         this.nome = nome;
         this.sexo = sexo;
@@ -27,6 +27,7 @@
         this.telefone = telefone;
         this.mail = mail;
         this.hobis = hobis;
+        this.outra = outra;
     }
     //Getters
     get nif(){
@@ -55,6 +56,9 @@
     }
     get hobis(){
         return this.hobis;
+    }
+    get outra(){
+        return this.outra;
     }
     //Setters
     /**Aqui entendo que já nom é só asignar valores sem mais, suponho que o nif nom se vai 
@@ -86,6 +90,9 @@
     }
     set hobis(hobis){
         this.hobis = hobis;
+    }
+    set outra(outra){
+        this.outra = outra;
     }
 }
 
@@ -128,6 +135,12 @@ let formulario = document.querySelector("form");
     let aficions = document.getElementsByName("aficion");
     let outra = document.getElementsByName("otra");
 
+    /**A plantilha HTML que me vai cumprir depois para pintar a táboa 
+     * co content devolve um nodo DocumentFragment, que
+    * depois poderemos copiar com cloneNode e assi aplicar as 
+    * funçons de querySelector e demais, coma se fora o objeto document do DOM
+    */
+    let modelo = document.querySelector("#template-fila").content
 
 /**Resetea formulario e asigna os valores que tem que ter 
  * Em primeiro lugar, tem que borrar todos os textbox
@@ -171,7 +184,53 @@ function recuperaDatosSessom(){
 
 /**"Pinta" a tábua HTML cos datos gardados no array alunos */
 function pintaTabua(){
-
+    /**Crea um fragmento onde vai ir gardando os datos */
+    let fragmento = document.createDocumentFragment();
+    /**Agora vou ir percorrendo um a um todas as instancias de aluno que existam, se é que existem */
+    alunos.forEach(aluno=>{
+        /**Clono a plantilha que tinha recolhida */
+        let modeloaluno = modelo.cloneNode(true);
+        /**Recolho todos os td dentro desta plantilha */
+        let tds = modeloaluno.querySelectorAll("td");
+        /**Vou mentendo os datos */
+        tds[0].textContent = aluno.nif();
+        tds[1].textContent = aluno.nome();
+        /**Para o sexo, garda-se true ou false em funçom de se é home ou nom
+         * daquela, com um condicional ternario pinto H ou M
+         */
+        tds[2].textContent = aluno.sexo() ? "H" : "M";
+        tds[3].textContent = aluno.enderezo();
+        tds[4].textContent = aluno.data();
+        /**Em estudos tenho gardado um número do 0 ao 5, em funçom do número ponho o string
+         * fago um switch case para isto
+        */
+        let estudos;
+        switch(aluno.estudos()){
+            case 0: estudos = "Sin estudios";
+            break;
+            case 1: estudos = "ESO";
+            break;
+            case 2: estudos = "Bachillerato";
+            break;
+            case 3: estudos = "CM FP";
+            break;
+            case 4: estudos = "CS FP";
+            break;
+            case 5: estudos = "Universidad";
+            break;
+        }
+        tds[5].textContent = estudos;
+        tds[6].textContent = aluno.telefone();
+        tds[7].textContent = aluno.mail();
+        /**Aqui, em tds8 hai que meter as afiçons e o que esteja em otra, se é que
+         * hai algo
+         */
+        tds[8]
+        /**Em tds 9 hai que fazer o truque de recolher o datatarget, bué, de meter o datatarget mais bem
+         * que pode ser o nif mesmamente
+         */
+        tds[9]
+    });
 }
 
 /**Engade um aluno à estrutura de datos */
@@ -192,10 +251,7 @@ function engadeAluno(){
             hobbies.push(elemento.nextSibling.textContent);
         }
     });
-    if (document.getElementsByName("otra")[0].value != "" ){
-        hobis.push(document.getElementsByName("otra")[0].value)
-    }
-    const novoaluno = new Aluno(nif.value,sexo[0].checked,enderezo.value,data.value,estudos.value,telefone.value,mail.value,hobis)
+    const novoaluno = new Aluno(nif.value,sexo[0].checked,enderezo.value,data.value,estudos.value,telefone.value,mail.value,hobis,outra[0].value)
     alunos.push(novoaluno);
 }
 
