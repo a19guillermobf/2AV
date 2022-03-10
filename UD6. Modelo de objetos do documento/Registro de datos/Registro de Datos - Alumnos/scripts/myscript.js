@@ -337,18 +337,37 @@ function cargaFormularioAlunoExistente(nif){
             estudos.value=aluno.estudos;
             telefone.value=aluno.telefone;
             mail.value=aluno.mail;
-            /**Agora para as afiçons... */
+            /**Agora para as afiçons, está gardado o texto do label associado, entom
+             * podo percorrer, as afiçons do aluno, e com um switch case, marcar as
+             * coincidencias
+             * aficions.forEach(elemento => {
+                if (elemento.checked){
+                    hobbies.push(elemento.nextSibling.textContent);
+                }
+                });
+            */
+           aluno.hobis.forEach(aficion=>{
+               switch(aficion){
+                   case "Cine": aficions[0].checked = true;
+                   break;
+                   case "Lectura": aficions[1].checked = true;
+                   break;
+                   case "Deporte": aficions[2].checked = true;
+                   break;
+               }
+           })
+           outra.value = aluno.outra;
         }; 
-    })
+    });
 }
 nif.addEventListener("blur",evento=>{
     /**Se o DNI é correto trabalha, se nom nom fai nada */
-    if(verificaNIF(nif)){
+    if(verificaNIF(nif.value)){
         /**Verifica se existe na estrutura de datos, se existe
          * saca um alert informando
          * carga os datos e desabilita o campo do nif
         */
-        if(existeNIF(nif)){
+        if(existeNIF(nif.value)){
             alert("Carregam-se os dados existentes");
             cargaFormularioAlunoExistente(nif);
             formulario[1].disabled = true;
