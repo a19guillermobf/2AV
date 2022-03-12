@@ -15,51 +15,57 @@
  * Polo que apuntei na outra tarefa, esta classe teria estes métodos e ademais teria internamente a estrutura de datos 
  */
 
+/**Nom conseguim trabalhar bem cos getters e os setters, ou mais bem cos setters, se nom ponhia o setter de nif
+ * dava-me erro de que havia um getter sem um setter, e se lho ponhia, dava-me um erro de recursividade que nom
+ * fum quem de identificar.
+ * Tal e como quedou, igual nom tem moito sentido trabalhar com classes deste jeito. Igual era melhor fazer coma 
+ * no exercicio de livros.
+ */
  class Aluno{
     //Construtor ao que se lhe passam todos os campos
     constructor(nif,nome,sexo,enderezo,data,estudos,telefone,mail,hobis,outra){
-        this.nif = nif;
-        this.nome = nome;
-        this.sexo = sexo;
-        this.enderezo = enderezo;
-        this.data = data;
-        this.estudos = estudos;
-        this.telefone = telefone;
-        this.mail = mail;
-        this.hobis = hobis;
-        this.outra = outra;
+        this._nif = nif;
+        this._nome = nome;
+        this._sexo = sexo;
+        this._enderezo = enderezo;
+        this._data = data;
+        this._estudos = estudos;
+        this._telefone = telefone;
+        this._mail = mail;
+        this._hobis = hobis;
+        this._outra = outra;
     }
     //Getters
-    get nif(){
-        return this.nif;
+    /*get nif(){
+        return this._nif;
     }
     get nome(){
-        return this.nome;
+        return this._nome;
     }
     get sexo(){
-        return this.sexo;
+        return this._sexo;
     }
     get enderezo(){
-        return this.enderezo;
+        return this._enderezo;
     }
     get data(){
-        return this.data;
+        return this._data;
     }
     get estudos(){
-        return this.estudos;
+        return this._estudos;
     }
     get telefone(){
-        return this.telefone;
+        return this._telefone;
     }
     get mail(){
-        return this.mail;
+        return this._mail;
     }
     get hobis(){
-        return this.hobis;
+        return this._hobis;
     }
     get outra(){
-        return this.outra;
-    }
+        return this._outra;
+    }*/
     //Setters
     /**Aqui entendo que já nom é só asignar valores sem mais, suponho que o nif nom se vai 
      * poder cambiar mais, polo que já nom lhe fago setter.
@@ -67,33 +73,36 @@
      * polo que teria que actualizar com um novo array, ainda que se o que recolho do html é
      * já umha estrutura assi... igual si que pode ser umha simples assignaçom... vou vendo
      */
+    /*set nif(nif){
+        this._nif = nif;
+    }
     set nome(nome){
-        this.nome = nome;
+        this._nome = nome;
     }
     set sexo(sexo){
-        this.sexo = sexo;
+        this._sexo = sexo;
     }
     set enderezo(enderezo){
-        this.enderezo = enderezo;
+        this._enderezo = enderezo;
     }
     set data(data){
-        this.data = data;
+        this._data = data;
     }
     set estudos(estudos){
-        this.estudos = estudos;
+        this._estudos = estudos;
     }
     set telefone(telefone){
-        this.telefone = telefone;
+        this._telefone = telefone;
     }
     set mail(mail){
-        this.mail = mail;
+        this._mail = mail;
     }
     set hobis(hobis){
-        this.hobis = hobis;
+        this._hobis = hobis;
     }
     set outra(outra){
-        this.outra = outra;
-    }
+        this._outra = outra;
+    }*/
 }
 
 /**Cambio de tercio por sugerencia de Julian, a parte que ia fazer com isto
@@ -149,7 +158,7 @@ let tbody = document.querySelector("tbody");
 
 function reseteaFormulario(){
     formulario[1].disabled = false;
-    for (let i = 2; i < formulario.length-1; i++){
+    for (let i = 2; i < formulario.length; i++){
         formulario[i].disabled = true
     }
     nif.value="";
@@ -159,7 +168,7 @@ function reseteaFormulario(){
     estudos.value=0;
     telefone.value="";
     mail.value="";
-    outra.value="";
+    outra[0].value="";
     aficions.forEach(elemento =>{
         elemento.checked=false;
     })
@@ -194,49 +203,50 @@ function pintaTabua(){
         /**Recolho todos os td dentro desta plantilha */
         let tds = modeloaluno.querySelectorAll("td");
         /**Vou mentendo os datos */
-        tds[0].textContent = aluno.nif;
-        tds[1].textContent = aluno.nome;
+        tds[0].textContent = aluno._nif;
+        tds[1].textContent = aluno._nome;
         /**Para o sexo, garda-se true ou false em funçom de se é home ou nom
          * daquela, com um condicional ternario pinto H ou M
          */
-        tds[2].textContent = aluno.sexo ? "H" : "M";
-        tds[3].textContent = aluno.enderezo;
-        tds[4].textContent = aluno.data;
+        tds[2].textContent = aluno._sexo ? "H" : "M";
+        tds[3].textContent = aluno._enderezo;
+        tds[4].textContent = aluno._data;
         /**Em estudos tenho gardado um número do 0 ao 5, em funçom do número ponho o string
          * fago um switch case para isto
         */
         let estudos;
-        switch(aluno.estudos){
-            case 0: estudos = "Sin estudios";
+        switch(aluno._estudos){
+            case "0": estudos = "Sin estudios";
             break;
-            case 1: estudos = "ESO";
+            case "1": estudos = "ESO";
             break;
-            case 2: estudos = "Bachillerato";
+            case "2": estudos = "Bachillerato";
             break;
-            case 3: estudos = "CM FP";
+            case "3": estudos = "CM FP";
             break;
-            case 4: estudos = "CS FP";
+            case "4": estudos = "CS FP";
             break;
-            case 5: estudos = "Universidad";
+            case "5": estudos = "Universidad";
             break;
+            default: estudos = "Nom vai";
         }
         tds[5].textContent = estudos;
-        tds[6].textContent = aluno.telefone;
-        tds[7].textContent = aluno.mail;
+        tds[6].textContent = aluno._telefone;
+        tds[7].textContent = aluno._mail;
         /**Aqui, em tds8 hai que meter as afiçons e o que esteja em otra, se é que
          * hai algo
          * Hobis vai ser um array sempre, ainda que nom tenha nada, entom creo um array
          * temporal onde vou ir metendo os valores se os hai
          */
         let aficons = [];
-        aluno.hobis.forEach(elemento=>{
+        aluno._hobis.forEach(elemento=>{
             aficons.push(elemento);
         })
         /**E agora se aluno.outra nom está valeiro, tamém o meto no array temporal
          * e remato metendo com join, os valores separados por ;
          */
-        if(aluno.outra != ""){
-            aficons.push(aluno.outra)
+        if(aluno._outra != ""){
+            aficons.push(aluno._outra)
         }
         tds[8].textContent = aficons.join(";");
         /**Em tds 9 hai que fazer o truque de recolher o datatarget, bué, de meter o datatarget mais bem
@@ -244,7 +254,7 @@ function pintaTabua(){
          * Este td tem um a dentro polo que podo recolhe-lo com queryselector(a)
          */
         let a = tds[9].querySelector("a");
-        a.dataset.id = aluno.nif;
+        a.dataset.id = aluno._nif;
         tds[9]
         /**Por último engade este aluno ao fragmento que temos gardado */
         fragmento.appendChild(modeloaluno)
@@ -279,11 +289,46 @@ function engadeAluno(){
             hobbies.push(elemento.nextSibling.textContent);
         }
     });
-    const novoaluno = new Aluno(nif.value,sexo[0].checked,enderezo.value,data.value,estudos.value,telefone.value,mail.value,hobbies,outra[0].value)
-    alunos.push(novoaluno);
+    //const novoaluno = new Aluno(nif.value,nome.value,sexo[0].checked,enderezo.value,data.value,estudos.value,telefone.value,mail.value,hobbies,outra[0].value)
+    alunos.push(new Aluno(nif.value,nome.value,sexo[0].checked,enderezo.value,data.value,estudos.value,telefone.value,mail.value,hobbies,outra[0].value));
+}
+function modificaAluno(aluno,nome,sexo,enderezo,data,estudos,telefone,mail,aficions,outra){
+    /*aluno.nome(nome);
+    aluno.sexo(sexo);
+    aluno.enderezo(enderezo);
+    aluno.data(data);
+    aluno.estudos(estudos);
+    aluno.telefone(telefone);
+    aluno.mail(mail);
+    aluno.aficions(aficions);
+    aluno.outra(outra);*/
+    aluno._nome=nome;
+    aluno._sexo=sexo;
+    aluno._enderezo=enderezo;
+    aluno._data=data;
+    aluno._estudos=estudos;
+    aluno._telefone=telefone;
+    aluno._mail=mail;
+    aluno._hobis=aficions;
+    aluno._outra=outra;
 }
 
-function verificaDados(){}
+/**Esta funçom vai verificar se estám preenchidos os campos Nome, endereço,
+ * telefone e mail. Se algum deles nom está devolve false, e se o telefone
+ * nom cumpre ca regExp correspondente tamém devolve false, o mail já está controlado por html
+ * se nom devolve true
+ */
+function verificaDados(){
+    let tel = new RegExp('^[6-9][0-9]{8}$')
+    if(nome.value=="" || enderezo.value=="" || telefone.value=="" || mail.value==""){
+        alert("Faltam dados pessoais por cubrir");
+        return false;
+    } else if(!tel.test(telefone.value)){
+        alert("O número de telefone introduzido nom é correto")
+        return false;
+    }
+    return true;
+}
 
 /**Imos cos eventos. Cando carregue a página tem que lançar o 
  * script de resetear o formulario
@@ -293,6 +338,8 @@ document.addEventListener("DOMContentLoaded", evento =>{
     reseteaFormulario();
     /**Tamém, se hai datos em sessom gardados recupera-os */
     recuperaDatosSessom();
+    /**E pinta a tábua */
+    pintaTabua();
 })
 
 /**No nif, hai que fazer várias cousas, mete-se o NIF
@@ -317,26 +364,27 @@ function verificaNIF(nif){
     return false;
 }
 function existeNIF(nif){
+    let existe = false
     alunos.forEach(aluno=>{
-        if (aluno.nif == nif){
-            return true;
-        };
+        if (aluno._nif == nif){
+            existe = true;
+        }
     })
-    return false;
+    return existe;
 }
 function cargaFormularioAlunoExistente(nif){
     alunos.forEach(aluno=>{
-        if (aluno.nif == nif){
-            nome.value=aluno.nome;
+        if (aluno._nif == nif){
+            nome.value=aluno._nome;
             /**Em sexo gardei true se estava selecionado home e false se nom
              * Agora asigno o checked em funçom disso
              */
-            aluno.sexo ? sexo[0].checked = true : sexo[1].checked = true;
-            enderezo.value=aluno.enderezo;
-            data.value=aluno.data;
-            estudos.value=aluno.estudos;
-            telefone.value=aluno.telefone;
-            mail.value=aluno.mail;
+            aluno._sexo ? sexo[0].checked = true : sexo[1].checked = true;
+            enderezo.value=aluno._enderezo;
+            data.value=aluno._data;
+            estudos.value=aluno._estudos;
+            telefone.value=aluno._telefone;
+            mail.value=aluno._mail;
             /**Agora para as afiçons, está gardado o texto do label associado, entom
              * podo percorrer, as afiçons do aluno, e com um switch case, marcar as
              * coincidencias
@@ -346,7 +394,7 @@ function cargaFormularioAlunoExistente(nif){
                 }
                 });
             */
-           aluno.hobis.forEach(aficion=>{
+           aluno._hobis.forEach(aficion=>{
                switch(aficion){
                    case "Cine": aficions[0].checked = true;
                    break;
@@ -356,10 +404,11 @@ function cargaFormularioAlunoExistente(nif){
                    break;
                }
            })
-           outra.value = aluno.outra;
-        }; 
-    });
+           outra[0].value = aluno._outra;
+        }
+    })
 }
+
 nif.addEventListener("blur",evento=>{
     /**Se o DNI é correto trabalha, se nom nom fai nada */
     if(verificaNIF(nif.value)){
@@ -369,12 +418,76 @@ nif.addEventListener("blur",evento=>{
         */
         if(existeNIF(nif.value)){
             alert("Carregam-se os dados existentes");
-            cargaFormularioAlunoExistente(nif);
-            formulario[1].disabled = true;
+            cargaFormularioAlunoExistente(nif.value);
         }
+        formulario[1].disabled=true;
         /**Habilita o resto dos campos*/
-        for (let i = 2; i < formulario.length-1; i++){
+        for (let i = 2; i < formulario.length; i++){
             formulario[i].disabled = false;
         }
     }
+})
+
+/**Evento submit. Tera que comprovar que:
+ * Estam cubertos todos os campos e os datos som corretos, daquela continua e mira se
+ *      Se o dni exite na estrutura de dados ou nom
+ *          Se existe, actualiza esse aluno na estrutura de dados
+ *          Se nom existe crea um aluno novo e engade-o à estrutura de datos
+ * Garda a estrutura de datos para a sessom e pinta a tábua 
+ */
+formulario.addEventListener("submit",evento=>{
+    evento.preventDefault();
+    if(verificaDados()){
+        if(existeNIF(nif.value)){
+            alunos.forEach(aluno=>{
+                if(aluno._nif==nif.value){
+                    let hobbies = [];
+                    aficions.forEach(elemento => {
+                        if (elemento.checked){
+                            hobbies.push(elemento.nextSibling.textContent);
+                        }
+                    });
+                    modificaAluno(aluno,nome.value,sexo[0].checked,enderezo.value,data.value,estudos.value,telefone.value,mail.value,hobbies,outra[0].value);
+                }
+            })
+        } else {
+            engadeAluno();
+            /**ESTA FALHANDO AO ENGADIR ALUNO NOVO HAI PROBLEMAS CO NIF*/
+        }
+    }
+    pintaTabua();
+    gardaDatosSessom();
+    reseteaFormulario();
+})
+
+/**E agora queda a parte de eliminar entradas, com um evento de click sobre o a tábua
+ * e que recolha o data-id do elemento para saber se o tem que borrar
+ */
+tbody.addEventListener("click",evento=>{
+    evento.preventDefault();
+    /** Agora, o detalhe que che esquece, comprovar se o elemento clickado tem um datatarget id, se o tem
+     * fazemos cousas, se nom nada
+     */
+    if(evento.target.dataset.id){
+        /**No foreach, a funçom de callback tem o elemento co que se está
+         * trabalhando em cada volta, o indice, e poderia-se-lhe passar outro
+         * array, que agora nom compre
+         */
+         alunos.forEach((aluno,indice) => {
+            /**Entom, ca funçom splice, se lhe passamos o índice
+             * e o número de elementos a borrar borra-se esse elemento
+             * em concreto.
+             * Tal e como apuntava na tarefa dos livros
+             * Juliam busca o indice com libros.findIndex(el=>el.id==evento.target.dataset.id)
+             * que parece bastante mais elegante e eficiente
+             */
+            if(aluno._nif == evento.target.dataset.id){
+                alunos.splice(indice,1);
+            }
+        });
+    }
+    /**Actualiza os dados da sessom e repinta a tábua*/
+    gardaDatosSessom();
+    pintaTabua();
+    reseteaFormulario();
 })
