@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/mystyle.css">
+    <title>Document</title>
+</head>
+<body>    
+    <div class="container">
+        <header>
+            <h1>Carrito de Compras</h1>
+        </header>
+        <main>
+            <div id="lista-productos">
+                <article class="producto-container">
+                    <img src="https://picsum.photos/id/0/600" alt="">
+                    <div class="producto-data">
+                        <h4>Café</h4>
+                        <p>500 &euro;</p>
+                        <button class="btn-buy">Comprar</button>
+                    </div>
+                </article>           
+                <article class="producto-container">
+                    <img src="https://picsum.photos/id/0/600" alt="">
+                    <div class="producto-data">
+                        <h4>Café</h4>
+                        <p>500 &euro;</p>
+                        <button class="btn-buy">Comprar</button>
+                    </div>
+                </article>           
+                <article class="producto-container">
+                    <img src="https://picsum.photos/id/0/600" alt="">
+                    <div class="producto-data">
+                        <h4>Café</h4>
+                        <p>500 &euro;</p>
+                        <button class="btn-buy">Comprar</button>
+                    </div>
+                </article>           
+                <article class="producto-container">
+                    <img src="https://picsum.photos/id/0/600" alt="">
+                    <div class="producto-data">
+                        <h4>Café</h4>
+                        <p>500 &euro;</p>
+                        <button class="btn-buy">Comprar</button>
+                    </div>
+                </article>           
+                <article class="producto-container">
+                    <img src="https://picsum.photos/id/0/600" alt="">
+                    <div class="producto-data">
+                        <h4>Café</h4>
+                        <p>500 &euro;</p>
+                        <button class="btn-buy">Comprar</button>
+                    </div>
+                </article>           
+                <article class="producto-container">
+                    <img src="https://picsum.photos/id/0/600" alt="">
+                    <div class="producto-data">
+                        <h4>Café</h4>
+                        <p>500 &euro;</p>
+                        <button class="btn-buy">Comprar</button>
+                    </div>
+                </article>  
+            </div>    
+        </main>
+        <footer>
+            <div id="carrito-productos">
+                <h4>Productos en el carro</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Item</th>
+                            <th>Cantidad</th>
+                            <th>Acción</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-carrito">
+                        <tr>
+                            <td>1</td>
+                            <td>Cafe</td>
+                            <td>1</td>
+                            <td>
+                                <button class="btn-info">
+                                   +
+                                </button>
+                                <button class="btn-danger">
+                                   -
+                                </button>
+                            </td>
+                            <td>500</td>
+                        </tr>
+                
+                    </tbody>
+                    <tfoot>
+                        <tr id="footer-carrito">
+                            <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>  
+        </footer>
+    </div>
+    <template id="template-producto">
+        <div class="col-12 col-sm-4 col-md-3 col-lg-2 mb-3 d-flex justify-content-center">
+            <div class="card">
+                <img src="" class="card-img-top" alt="item-producto">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-dark">Comprar</a>
+                </div>
+            </div>
+        </div>
+    </template>        
+    <template id="template-producto-carrito">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <button class="btn btn-info btn-sm">
+                   +
+                </button>
+                <button class="btn btn-danger btn-sm">
+                   -
+                </button>
+            </td>
+            <td></td>
+        </tr>
+    </template>
+    <template id="template-footer-carrito">
+        <th scope="row" colspan="2">Total productos</th>
+        <td>N</td>
+        <td>
+            <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+               Vaciar Carrito
+            </button>
+        </td>
+        <td class="font-weight-bold"><span>5000</span>&euro;</td>
+    </template>
+    <!-- <script src="scripts/myscript.js"></script> -->
+</body>
+</html>
+
+
+

@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    width: 100%;
+    margin: 20px 0;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #66bb99;
+}
+
+header h1{
+    font-size:40px;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    color:white
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#lista-productos{
+    display: flex;
+    flex-direction: row;   
+    justify-content:flex-start;
+    flex-wrap: wrap; 
+}
+
+.producto-container{
+    width: 18%;
+    display:flex;
+    flex-direction: column;
+    margin:1% 1%;
+}
+
+.producto-container img{
+    width: 90%;
+    height: auto;
+    margin:5px 0px;
+    align-self: center;
+    border-radius: 15px;
+}
+
+.producto-container img:hover{
+     border:1px solid darkgrey;
+     box-shadow: 2px 1px 3px black;
+}
+
+.producto-data{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    background-color:burlywood;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-bottom: 7px;
+}
+
+.producto-data h4{
+    font-size: 18px;
+    margin:5px 10px;
+}
+
+.producto-data p{
+    margin:5px 10px;
+}
+
+.btn-buy{
+    width: 100%;
+    border:transparent;
+    color:white;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 7px;
+    cursor: pointer;
+    background-color: black;
+}
+
+.btn-buy:hover{
+    border:transparent;
+    color:black;
+    background-color: darkorange;
+    cursor: pointer;
+}
+
+footer{
+    width: 100%;
+    margin-top: 20px;
+}
+
+#carrito-productos{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#carrito-productos h4{
+    text-align: center;
+    padding: 5px;;
+    font-size: 25px;
+    margin-bottom:15px;
+    background-color: #66bb99;
+    color:white;
+    border-radius: 10px;
+}
+
+.table {
+   border-collapse:collapse;
+}
+
+.table thead tr {
+    border-bottom: black 2px solid;
+}
+    
+.table thead th {
+    padding: 10px;
+}
+
+.table tbody td{
+    text-align: center;
+    padding: 12px;
+}
+
+.table tbody .btn-danger{
+    padding:10px;
+    border:transparent;
+    background-color: red;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.table tbody .btn-info{
+    padding:10px;
+    border:transparent;
+    background-color: green;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.table tfoot tr th {
+    padding: 10px;
+}
