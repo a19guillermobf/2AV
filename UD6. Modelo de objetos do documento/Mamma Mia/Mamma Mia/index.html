@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Akaya Kanadaka">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Hoja de pedidos</title>
+</head>
+<body>
+    <form name="formulario">
+        <h1>Pedidos Mamma Mia</h1>
+        <fieldset>          
+          <legend>Datos del Cliente</legend>          
+          <p>
+            <label for="nif" class="cliente">NIF</label>
+            <input type="text" name="nif" id="nif" placeholder="Escribe tu NIF"/>
+          </p>
+          <p>
+            <label for="nombre" class="cliente">Nombre </label>
+            <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre y apellidos"/>
+          </p>
+          <p>
+            <label for="telefono" class="cliente" />Telefono</label>
+            <input type="tel" name="telefono" id="tfno" placeholder="Telefono" />
+          </p>
+
+          <p id="direccion">
+            <label for="calle" class="cliente"/>Calle</label>
+            <input type="text" name="calle" id="calle" placeholder="Calle"/>
+            <label for="piso" class="direccion" />Piso</label>
+            <input type="number" name="piso" id="piso" min="0" max="10" value="0" size="3" />  
+            <label for="puerta" class="direccion"/>Puerta</label>
+            <select type="puerta" name="puerta" id="puerta" />
+              <option value="A" selected>A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+            </select>
+          </p>
+        <p>
+            <label for="localidad" class="cliente" />Localidad</label>
+            <select type="localidad" name="localidad" id="localidad"/>
+              <option value="0">Ferrol</option>
+              <option value="1">Narón</option>
+              <option value="2">Fene</option>
+              <option value="3">Neda</option>
+            </select>
+          </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Datos del pedido</legend>
+            <label for="tipo1" class="pedido">Pizzas</label>
+            <section class="precio">
+              <h1 id="importe">Importe</h1>
+              <p id="total">
+                  Total: <span id="cantidad">0<span>
+              </p>
+            </section>
+            <p id="datos">              
+              Quiero <input type="number" name="quesos" id="quesos" min="0" max="10" value="0" />
+              <label for="tipo1" class="pedido pizza" />pizzas Cuatro Quesos</label>
+            </p>
+            <p id="datos">
+              Quiero <input type="number" name="hawaii" id="hawaii" min="0" max="10" value="0" />
+              <label for="tipo2" class="pedido pizza" />pizzas Hawaii</label>
+            </p>
+            <p id="datos">
+              Quiero <input type="number" name="barbacoa" id="barbacoa" min="0" max="10" value="0" />
+              <label for="tipo3" class="pedido pizza"/>pizzas Barbacoa</label>
+            </p>
+            <p>
+              <label for="tipo1" class="pedido ingredientes">Ingredientes Extra</label>
+              <label class="container">Mozzarella
+                <input type="checkbox" id="extra1">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Salsa de tomate
+                <input type="checkbox"  id="extra2">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Piña
+                <input type="checkbox" id="extra3">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Champiñones
+                <input type="checkbox" id="extra4">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Olivas negras
+                <input type="checkbox" id="extra5">
+                <span class="checkmark"></span>
+              </label>
+            </p>
+
+            <p>
+              <label for="fecha" class="pedido fecha">Fecha de entrega</label>
+              <input type="date" id="fecha">  
+            </p>
+
+            <p>
+              <label for="recoger" class="pedido entrega"  />Recogida y pago</label>
+              <label class="container">En el local
+                <input type="radio" name="recogida" checked>
+                <span class="radiomark"></span>
+              </label>
+              <label class="container">En el domicilio
+                <input type="radio" name="recogida">
+                <span class="radiomark"></span>
+              </label>
+            </p>
+        </fieldset>
+        <input type="submit" id="enviar" name="enviar" value="Enviar Datos"/>
+        </form>   
+        <script src="js/mijs.js"></script>
+</body>
+</html>
