@@ -1,0 +1,292 @@
+* {
+	box-sizing:border-box;
+}
+
+form {
+	width:800px;
+	padding:16px;
+	border-radius:10px;
+	margin:auto;
+}
+
+h1 {
+    text-align: center;
+    font-size:65px;
+    font-style: italic;
+    color:darkblue;
+    font-family: 'Akaya Kanadaka', cursive;
+}
+
+h1#importe {
+    text-align: center;
+    font-size:35px;
+    font-style: italic;
+    color:darkblue;
+    font-family: 'Akaya Kanadaka', cursive;
+    margin-top: 0px;
+}
+
+form fieldset {
+   margin-bottom: 5px;
+   border-radius: 20px;
+   background-color:burlywood;
+   border:2px solid blue;
+}
+
+form fieldset p {
+	display:block;
+	margin-bottom: 0px;
+}
+
+form fieldset p.datos {
+	display:inline-block;
+	width: 70%;
+	display:block;
+	margin-bottom: 0px;
+}
+
+form fieldset p#total {
+    text-align: center;
+    width: 100%;
+    font-size:35px;
+    font-style: italic;
+    color:darkblue;
+    font-family: 'Akaya Kanadaka', cursive;
+    margin-top: 0px;
+}
+
+form fieldset p#total span#cantidad {
+    font-size:35px;
+    font-style: italic;
+    color:white;
+    font-family: 'Akaya Kanadaka', cursive;
+    margin-top: 0px;
+}
+
+form fieldset p[id="direccion"] {
+	width: 100%;
+	display:inline-block;
+}
+
+form legend{
+	color:white;
+	font-weight: bold;;
+	background-color: blue;
+	padding: 5px;
+	border-radius: 7px;
+}
+
+form label {
+	color:brown;
+}
+
+form label.cliente {
+	width:85px;
+	font-weight:bold;
+	display:inline-block;
+	margin-right: 5px;
+}
+
+form label.direccion {
+   width:60px;
+   margin-left: 30px;
+   text-align: right;
+   font-weight:bold;
+}
+
+form label.pedido.tarea {
+	display:inline-block;
+	color:black;
+	font-weight: normal;
+	margin-top:0px;
+}
+
+span[id="tipo-tarea-coche"] {
+    margin-left: 25px;
+}
+
+form label.fecha {
+	margin-bottom: 10px;
+    margin-right: 8px;
+}
+
+form label.pago {
+	margin-bottom: 10px;
+    margin-right: 15px;
+}
+
+form input {
+	width:280px;
+	padding:5px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:10px;
+	background-color:#f6f6f6;
+	display:inline-block;
+	text-align: center;
+	font-size: 10pt;
+}
+
+form input:focus {
+	background-color:gray;
+	color:white;
+	font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="tel"]{
+    width:280px;
+}
+
+form input[type="number"] {
+    width:75px;
+}
+
+form input[type='number']::-webkit-inner-spin-button, 
+form input[type='number']::-webkit-outer-spin-button { 
+    opacity: 1;
+}
+
+form select {
+	width:95px;
+	padding:5px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:10px;
+	background-color:#f6f6f6;
+	display:inline-block;
+    font-size: 10pt;
+    text-align-last:center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+form input[type="date"] {
+    width: 175px;
+}
+
+form input[type="submit"]{
+	width:100%;
+	padding:8px 16px;
+	margin-top:32px;
+	border:1px solid #000;
+	border-radius:5px;
+	display:block;
+	color:#fff;
+	background-color:#000;
+} 
+
+form input[type="submit"]:hover{
+	cursor:pointer;
+}
+
+form fieldset .precio {
+	width: 30%;
+	float: right;
+	display: inline-block;
+	background-color: brown;
+	text-align: right;
+	color:black;
+	margin-top:25px;
+	border-radius:20px 0px 20px 0px;
+}
+
+.container {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    margin-right: 10px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	color:black;
+	font-weight: normal;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+}
+  
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+  
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+  
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+.container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+} 
+
+ /* Create a custom checkbox */
+.radiomark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+ 
+.container:hover input ~ .radiomark {
+    background-color: #ccc;
+}
+  
+.container input:checked ~ .radiomark {
+    background-color: #2196F3;
+}
+  
+.radiomark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.container input:checked ~ .radiomark:after {
+    display: block;
+}
+  
+.container .radiomark:after {
+    top: 6px;
+	left: 6px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+} 

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Akaya Kanadaka">
+    <link rel="stylesheet" href="css/style.css">
+    <title>TeLoHago</title>
+</head>
+<body>
+    <form name="formulario" id="formulario">
+      <h1>Te Lo Hago !</h1>
+      <fieldset>          
+          <legend>Datos del Cliente</legend>          
+          <p>
+            <label for="nif" class="cliente">NIF</label>
+            <input type="text" name="nif" id="nif" placeholder="Escribe tu NIF"/>
+          </p>
+          <p>
+            <label for="nombre" class="cliente">Nombre </label>
+            <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre y apellidos"/>
+          </p>
+          <p>
+            <label for="telefono" class="cliente" />Telefono</label>
+            <input type="tel" name="telefono" id="tfno" placeholder="Telefono" />
+          </p>
+
+          <p id="direccion">
+            <label for="calle" class="cliente"/>Calle</label>
+            <input type="text" name="calle" id="calle" placeholder="Calle"/>
+            <label for="piso" class="direccion" />Piso</label>
+            <input type="number" name="piso" id="piso" min="0" max="10" value="0" size="3" />  
+            <label for="puerta" class="direccion"/>Puerta</label>
+            <select type="puerta" name="puerta" id="puerta" />
+              <option value="A" selected>A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+            </select>
+          </p>
+        <p>
+            <label for="localidad" class="cliente" />Localidad</label>
+            <select type="localidad" name="localidad" id="localidad"/>
+              <option value="0">Santiago</option>
+              <option value="1">Negreira</option>
+              <option value="2">Silleda</option>
+              <option value="3">Lalín</option>
+            </select>
+          </p>
+      </fieldset>
+      <fieldset>
+            <legend>Tareas</legend>
+              <section class="precio">
+              <h1 id="importe">Importe</h1>
+              <p id="total">
+                  Total: <span id="cantidad">0<span>
+              </p>
+            </section>
+            <p class="datos">              
+              Pasear tus <input type="number" name="canes" id="canes" min="0" max="10" value="0" />
+              maravillosos perros
+            </p>
+            <p class="datos">
+              Recoger tus <input type="number" name="hijos" id="hijos" min="0" max="10" value="0" />
+              encantadores hijos
+            </p>
+            <p class="datos">
+              Cuidar tus <input type="number" name="coches" id="coches" min="0" max="10" value="0" />
+              coches
+              <span id="tipo-tarea-coche">
+                <label for="itv" class="container">ITV
+                  <input type="checkbox" name="extras" id="itv">
+                  <span class="checkmark"></span>
+                </label>
+                <label for="taller" class="container">Taller
+                  <input type="checkbox" name="extras"  id="taller">
+                  <span class="checkmark"></span>
+                </label>
+                <label for="lavado" class="container">Lavar
+                  <input type="checkbox" name="extras"  id="lavado">
+                  <span class="checkmark"></span>
+                </label>
+              </span> 
+          </p> 
+        
+            <p>
+              <label for="fecha" class="fecha">Fecha</label>
+              <input type="date" id="fecha">  
+            </p>
+
+            <p>
+              <label for="pago" class="pago" />Pago</label>
+              <label class="container">Efectivo
+                <input type="radio" name="pago" id="efectivo">
+                <span class="radiomark"></span>
+              </label>
+              <label class="container">Tarjeta
+                <input type="radio" name="pago" id="tarjeta">
+                <span class="radiomark"></span>
+              </label>
+            </p>
+      </fieldset>
+      <input type="submit" id="enviar" name="enviar" value="Procesar Pedido"/>
+    </form>   
+    <script src="js/mijs.js"></script>
+</body>
+</html>

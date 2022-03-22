@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elige tus cartas</title>
+    <script src="scripts/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <section id="formulario">
+        <h1>Elige tus cartas</h1>
+        <form action="#">
+            <p id="menu-carta">
+                <label for="palo">Palo <select name="" id="palo">
+                                            <option value="oros-">Oros</option>
+                                            <option value="espadas-">Espadas</option>
+                                            <option value="copas-">Copas</option>
+                                            <option value="bastos-">Bastos</option>
+                                      </select>
+                </label>
+                <label for="palo">Número <input type="number" id="numero" min="1" max="12" value="1"></label>
+                <button id="addCarta">Añadir carta</button>
+                <button id="delCarta">Borrar carta</button>
+            </p>
+
+            <p id="menu-opciones">
+                <label class="contenedor">Insertar carta antes de...
+                    <input type="radio" name="operacion">
+                    <span class="checkmark"></span>
+                </label>        
+                <label class="contenedor">Sustituir carta
+                    <input type="radio" name="operacion">
+                    <span class="checkmark"></span>
+                </label> 
+                <label for="ncartas" class="contenedor">Carta núm.: <select id="ncartas"></select></label>
+                <button id="btnOperar">Realizar</button>
+            </p>
+        </form>
+    </section>
+    <section id="figuras"></section>
+</body>
+</html>
